@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Visual Novels Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<script>
+  const colors = ["#ff0000", "#ff9900", "#33ff00", "#00ffff", "#0000ff", "#ff00ff"];
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % colors.length;
+    const nextColor = colors[index];
+    const particles = window.pJSDom[0].pJS.particles.array;
+
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].color.value = nextColor;
+      particles[i].color.rgb = hexToRgb(nextColor);
+    }
+  }, 1000); // Change color every second
+
+  function hexToRgb(hex) {
+    const bigint = parseInt(hex.replace("#", ""), 16);
+    return {
+      r: (bigint >> 16) & 255,
+      g: (bigint >> 8) & 255,
+      b: bigint & 255
+    };
+  }
+</script>
+<body>
+  <div id="particles-js"></div>
+  <h1>🎮 HTA GAMES</h1>
+  <p>7.1</p>
+
+  <div class="game-grid">
+    <div class="game-card">
+      <img src="assets/thumbnails/portrait.PNG" alt="Портрет">
+      <h2>Портрет</h2>
+      <a href="games/portrait/index.html">Play</a>
+    </div>
+    <div class="game-card">
+      <img src="assets/thumbnails/slepaya-zona.PNG" alt="Слепая Зона">
+      <h2>Слепая Зона</h2>
+      <a href="games/slepaya-zona/index.html">Play</a>
+    </div>
+    <div class="game-card">
+      <img src="assets/thumbnails/tam-gde-molchit-mir.PNG" alt="Там Где Молчит Мир">
+      <h2>Там Где Молчит Мир</h2>
+      <a href="games/tam-gde-molchit-mir/index.html">Play</a>
+    </div>
+    <div class="game-card">
+      <img src="assets/thumbnails/beh-mirror.PNG" alt="За Зеркалом">
+      <h2>За Зеркалом</h2>
+      <a href="games/za-zerkalom/index.html">Play</a>
+    </div>
+    <div class="game-card">
+      <img src="assets/thumbnails/mikage-station.PNG" alt="Станция Микаге">
+      <h2>Станция Микаге</h2>
+      <a href="games/mikage_station/index.html">Play</a>
+    </div>
+  </div>
+
+  <script src="particles-config.js"></script>
+</body>
+</html>
